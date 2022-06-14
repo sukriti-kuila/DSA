@@ -1,5 +1,4 @@
 package LinkedList;
-
 public class LL_NoTail {
 	private class _Node 
 	{
@@ -45,6 +44,24 @@ public class LL_NoTail {
 			return;
 		}
 		_Node temp = getPrevNode (index);
+		node.next = temp.next;
+		temp.next = node;
+		size++;
+	}
+	
+	public void sortedInsert (int val)
+	{
+		_Node node = new _Node (val);
+		_Node temp = head;
+		if (temp == null || temp.val>val)
+		{
+			addFirst(val);
+			return;
+		}
+		while (temp.next != null && temp.next.val<val)
+		{
+			temp = temp.next;
+		}
 		node.next = temp.next;
 		temp.next = node;
 		size++;
@@ -117,23 +134,7 @@ public class LL_NoTail {
 		curr.next = prev;
 		reverseRecursive (next1, curr);	
 	}
-	public void sortedInsert (int val)
-	{
-		_Node node = new _Node (val);
-		_Node temp = head;
-		if (temp == null || temp.val>val)
-		{
-			addFirst(val);
-			return;
-		}
-		while (temp.next != null && temp.next.val<val)
-		{
-			temp = temp.next;
-		}
-		node.next = temp.next;
-		temp.next = node;
-		size++;
-	}
+	
 //	Delete node from the linked list given its value
 	public boolean removeByValue (int val)	
 	{
@@ -156,6 +157,17 @@ public class LL_NoTail {
 		return false;
 	}
 	
+	public void removeDuplicate () // given sorted list
+	{
+		_Node temp = head;
+		 while (temp.next != null)
+	     {
+	         if (temp.val == temp.next.val)
+	            temp.next = temp.next.next;
+	          else
+	            temp = temp.next;
+	      }
+	}
 	public _Node getPrevNode (int index)
 	{
 		_Node temp = head;
@@ -197,16 +209,26 @@ public class LL_NoTail {
 ////		ll.display();
 //		ll.reverse();
 //		ll.display();
-		ll.sortedInsert(27);
-		ll.sortedInsert(12);
-		ll.sortedInsert(23);
-		ll.sortedInsert(2);
-		ll.sortedInsert(29);
+		
+//		ll.sortedInsert(27);
+//		ll.sortedInsert(12);
+//		ll.sortedInsert(23);
+//		ll.sortedInsert(2);
+//		ll.sortedInsert(29);
+//		ll.sortedInsert(29);
+//		ll.sortedInsert(12);
+//		ll.removeByValue(2);
+//		reverseRecursive(ll.head,null);
+//		ll.display();
+		ll.addFirst(200);
+		ll.addFirst(45);
+		ll.addFirst(300);
+		ll.sortedInsert(201);
+		ll.sortedInsert(1);
+		ll.sortedInsert(25);
+		ll.sortedInsert(6);
 		ll.display();
-		ll.removeByValue(2);
-		ll.display();
-		_Node start = ll.head;
-		reverseRecursive(start,null);
+//		ll.removeDuplicate();
 		ll.display();
 	}
 
