@@ -39,6 +39,7 @@ public class DLL {
 		if (head==null)
 		{
 			addFirst(val);
+			size++;
 			return;
 		}
 		
