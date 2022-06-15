@@ -19,11 +19,12 @@ public class CLL {
 	 	{
 	 		head = node;
 	 		tail=node;
+	 		node.next = node;
 	 	}
-	 	else {			
+	 	else {		
 	 	node.next = head;	
 	 	head = node;
-	 	tail.next = head;		
+	 	tail.next = node;		
 	 	}
 	 	size++;
 	 }
@@ -35,10 +36,9 @@ public class CLL {
 	 		addFirst(val);
 	 		return;
 	 	}
-	 	Node temp = getPrevNode (size);
-	 	temp.next = node;
+	 	tail.next = node;
 	 	tail = node;
-	 	tail.next = head;
+	 	node.next = head;
 	 	size++;
 	 }
 	 
@@ -46,6 +46,11 @@ public class CLL {
 	 {
 		 if (head == null)
 			 throw new IllegalStateException ("EmptyListException");
+		 if (size==1)
+		 {
+			 deleteList ();
+			 return;
+		 }
 		 head = head.next;
 		 tail.next = head;
 		 size--;
@@ -55,12 +60,23 @@ public class CLL {
 	 {
 		 if (head == null)
 			 throw new IllegalStateException ("EmptyListException");
+		 if (size==1)
+		 {
+			 deleteList ();
+			 return;
+		 }
 		 Node temp = getPrevNode(size-1);
 		 tail = temp;
 		 tail.next = head;
 		 size--;
 	 }
 	 
+	 public void deleteList ()
+	 {
+		 head = null;
+		 tail = null;
+		 size = 0;
+	 }
 	 public Node getPrevNode (int index)
 	 {
 	 	Node temp = head;
@@ -71,26 +87,14 @@ public class CLL {
 	 	return temp;
 	 }
 	 
-	 public CLL copyList () {
-		 CLL cl = new CLL ();
-		 Node curr = tail.next;
-		 Node head = curr;
-		 
-		 if (curr != null)
-		 {
-			 cl.addLast(curr.val);
-			 curr = curr.next;
-		 }
-		 while (curr != head)
-		 {
-			 cl.addLast(curr.val);
-			 curr = curr.next;
-		 }
-		 return cl;
-	 }
 	 public void display ()
 	 {
 	 	Node temp = head;
+	 	if (temp == null)
+	 	{
+	 		System.out.println("List is Empty");
+	 		return;
+	 	}
 	 	while (temp != tail)
 	 	{
 	 		System.out.print(temp.val+" ");
@@ -102,12 +106,14 @@ public class CLL {
 	 
 	 public static void main(String[] args) {
 	 	CLL cl = new CLL ();
-	 	CLL newCl = new CLL ();
 	 	cl.addFirst(2000);
-	 	cl.addFirst(1000);
+//	 	cl.addFirst(1000);
+//	 	cl.addLast(4000);
+//	 	cl.addLast(5000);
+//	 	cl.addLast(5001);
+//	 	cl.addLast(5002);
+	 	cl.removeLast();
 	 	cl.display();	
-	 	newCl = cl.copyList();
-	 	newCl.display();
 	 }
  }
 
