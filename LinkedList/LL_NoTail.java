@@ -23,6 +23,14 @@ public class LL_NoTail {
 	public void addLast (int val)
 	{
 		_Node node = new _Node (val);
+		if (head==null)
+		{
+//			node.next = head;
+//			head = node;
+//			size++;
+			addFirst(val);
+			return;
+		}
 		_Node temp = getPrevNode (size);
 		temp.next = node;
 		size++;
@@ -31,6 +39,11 @@ public class LL_NoTail {
 	public void add (int index, int val)
 	{
 		_Node node = new _Node (val);
+		if (head == null && index==0)
+		{
+			addFirst(val);
+			return;
+		}
 		if (index>size)
 			throw new IllegalStateException ("IndexOutOfBound");
 		if (index == 0)
@@ -195,8 +208,11 @@ public class LL_NoTail {
 //		ll.addFirst(20);
 //		ll.addFirst(40);
 //		ll.addFirst(50);
-//		ll.addLast(100);
-//		ll.addLast(200);
+		ll.addLast(100);
+		ll.addLast(200);
+//		ll.add(0, 40);
+//		ll.add(1, 50);
+		ll.addLast(300);
 ////		ll.display();
 //		ll.add(5, 500);
 ////		ll.display();
@@ -218,18 +234,24 @@ public class LL_NoTail {
 //		ll.sortedInsert(29);
 //		ll.sortedInsert(12);
 //		ll.removeByValue(2);
-		reverseRecursive(ll.head,null);
+//		reverseRecursive(ll.head,null);
 //		ll.display();
-		ll.addFirst(200);
-		ll.addFirst(45);
-		ll.addFirst(300);
-		ll.sortedInsert(201);
-		ll.sortedInsert(1);
-		ll.sortedInsert(25);
-		ll.sortedInsert(6);
-		ll.display();
+//		ll.addFirst(200);
+//		ll.addFirst(45);
+//		ll.addFirst(300);
+//		ll.sortedInsert(201);
+//		ll.sortedInsert(1);
+//		ll.sortedInsert(25);
+//		ll.sortedInsert(6);
+//		ll.sortedInsert(12);
+//		ll.sortedInsert(11);
+//		ll.sortedInsert(10);
+//		ll.sortedInsert(12);
+//		ll.display();
 //		ll.removeDuplicate();
+//		ll.reverse();
 		ll.display();
+		System.out.println(ll.size);
 	}
 
 }
