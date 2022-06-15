@@ -218,7 +218,7 @@ public class LL_NoTail {
 //		ll.sortedInsert(29);
 //		ll.sortedInsert(12);
 //		ll.removeByValue(2);
-//		reverseRecursive(ll.head,null);
+		reverseRecursive(ll.head,null);
 //		ll.display();
 		ll.addFirst(200);
 		ll.addFirst(45);
