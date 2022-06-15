@@ -129,6 +129,7 @@ public class DLL {
 	        		 temp.next.next.prev = temp;	        		 
 	        	 }
 				 temp.next = temp.next.next;
+				 size--;
 	         }
 	          else
 	            temp = temp.next;
