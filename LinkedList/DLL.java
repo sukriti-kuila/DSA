@@ -107,6 +107,7 @@ public class DLL {
 				temp.prev.next = temp.next;
 				if (temp.next == null )
 					tail = temp.prev;
+				size--;
 				return true;
 			}
 			temp = temp.next;
@@ -174,25 +175,28 @@ public class DLL {
 //		dl.addFirst(31);
 //		dl.addLast(50);
 //		dl.addFirst(10);
-		dl.addLast(1000);
-		dl.addLast(2000);
-		dl.addLast(3000);
+//		dl.addLast(1000);
+//		dl.addLast(2000);
+//		dl.addLast(3000);
 //		dl.addFirst(400);
-//		dl.sortedInsert(12);
-//		dl.sortedInsert(23);
-//		dl.sortedInsert(24);
-//		dl.sortedInsert(11);
-//		dl.sortedInsert(29);
-//		dl.sortedInsert(24);
-//		dl.sortedInsert(11);
-//		dl.sortedInsert(23);
+		dl.sortedInsert(12);
+		dl.sortedInsert(23);
+		dl.sortedInsert(24);
+		dl.sortedInsert(11);
+		dl.sortedInsert(29);
+		dl.sortedInsert(25);
+		dl.sortedInsert(24);
+		dl.sortedInsert(11);
+		dl.sortedInsert(23);
 //		dl.removeFirst();
 //		dl.removeLast();
 //		dl.removeByValue(2000);
 //		System.out.println("Tail Value "+dl.tail.val+" -->"+dl.tail);
 //		dl.removeDuplicate();
+		dl.removeByValue(24);
 //		dl.display();
 //		dl.reverse(); 
+		System.out.println(dl.size);
 		dl.display();
 	}
 }
