@@ -39,7 +39,6 @@ public class DLL {
 		if (head==null)
 		{
 			addFirst(val);
-			size++;
 			return;
 		}
 		
@@ -171,23 +170,23 @@ public class DLL {
 	}
 	public static void main(String[] args) {
 		DLL dl = new DLL ();
-//		dl.addFirst(12);
-//		dl.addFirst(31);
+		dl.addFirst(12);
+		dl.addFirst(31);
 //		dl.addLast(50);
 //		dl.addFirst(10);
 //		dl.addLast(1000);
 //		dl.addLast(2000);
 //		dl.addLast(3000);
 //		dl.addFirst(400);
-		dl.sortedInsert(12);
-		dl.sortedInsert(23);
-		dl.sortedInsert(24);
-		dl.sortedInsert(11);
-		dl.sortedInsert(29);
-		dl.sortedInsert(25);
-		dl.sortedInsert(24);
-		dl.sortedInsert(11);
-		dl.sortedInsert(23);
+//		dl.sortedInsert(12);
+//		dl.sortedInsert(23);
+//		dl.sortedInsert(24);
+//		dl.sortedInsert(11);
+//		dl.sortedInsert(29);
+//		dl.sortedInsert(25);
+//		dl.sortedInsert(24);
+//		dl.sortedInsert(11);
+//		dl.sortedInsert(23);
 //		dl.removeFirst();
 //		dl.removeLast();
 //		dl.removeByValue(2000);
