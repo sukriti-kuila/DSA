@@ -21,16 +21,27 @@ public class DLL {
 	public void addFirst (int val)
 	{
 		$Node node = new $Node (val);
-		node.next=head;
 		if (size == 0)
-			tail=head=node;
-		head.prev=node;
-		head=node;
+		{
+			tail = head = node;
+		}
+		else
+		{
+			head.prev = node;
+			node.next = head;
+			head = node;	
+		}
 		size++;
 	}
 	public void addLast (int val)
 	{
 		$Node node = new $Node (val);
+		if (head==null)
+		{
+			addFirst(val);
+			return;
+		}
+		
 		tail.next = node;
 		node.prev = tail;
 		tail = node;
@@ -161,22 +172,25 @@ public class DLL {
 //		dl.addFirst(31);
 //		dl.addLast(50);
 //		dl.addFirst(10);
-//		dl.addLast(1000);
-		dl.sortedInsert(12);
-		dl.sortedInsert(23);
-		dl.sortedInsert(24);
-		dl.sortedInsert(11);
-		dl.sortedInsert(29);
-		dl.sortedInsert(24);
-		dl.sortedInsert(11);
-		dl.sortedInsert(23);
+		dl.addLast(1000);
+		dl.addLast(2000);
+		dl.addLast(3000);
+//		dl.addFirst(400);
+//		dl.sortedInsert(12);
+//		dl.sortedInsert(23);
+//		dl.sortedInsert(24);
+//		dl.sortedInsert(11);
+//		dl.sortedInsert(29);
+//		dl.sortedInsert(24);
+//		dl.sortedInsert(11);
+//		dl.sortedInsert(23);
 //		dl.removeFirst();
 //		dl.removeLast();
-//		dl.removeByValue(29);
+//		dl.removeByValue(2000);
 //		System.out.println("Tail Value "+dl.tail.val+" -->"+dl.tail);
 //		dl.removeDuplicate();
-		dl.display();
-		dl.reverse(); 
+//		dl.display();
+//		dl.reverse(); 
 		dl.display();
 	}
 }
