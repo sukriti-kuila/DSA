@@ -92,11 +92,21 @@ public class LL_NoTail {
 	{
 		if (size==0)
 			throw new IllegalStateException ("EmptyListException");
+		if (size==1)
+		{
+			deleteList();
+			return;
+		}
 		_Node temp = getPrevNode (size-1);
 		temp.next = null;
 		size--;
 	}
 	
+	public void deleteList ()
+	{
+		head = null;
+		size = 0;
+	}
 	public void remove (int index)
 	{
 		if (size==0)
@@ -194,6 +204,11 @@ public class LL_NoTail {
 	public void display ()
 	{
 		_Node temp = head;
+		if (temp == null)
+		{
+			System.out.println("List is empty");
+			return;
+		}
 		while (temp != null)
 		{
 			System.out.print(temp.val+" ");
@@ -209,10 +224,10 @@ public class LL_NoTail {
 //		ll.addFirst(40);
 //		ll.addFirst(50);
 		ll.addLast(100);
-		ll.addLast(200);
+//		ll.addLast(200);
 //		ll.add(0, 40);
 //		ll.add(1, 50);
-		ll.addLast(300);
+//		ll.addLast(300);
 ////		ll.display();
 //		ll.add(5, 500);
 ////		ll.display();
@@ -250,6 +265,7 @@ public class LL_NoTail {
 //		ll.display();
 //		ll.removeDuplicate();
 //		ll.reverse();
+		ll.removeLast();
 		ll.display();
 		System.out.println(ll.size);
 	}
