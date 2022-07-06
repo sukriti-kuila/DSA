@@ -139,21 +139,20 @@ public class DLL {
 	public void reverse ()
 	{
 		$Node curr = head;
-		$Node temp = null;
+		$Node next = null;
 		while (curr != null)
 		{
-			temp = curr.next;
+			next = curr.next;
 			curr.next = curr.prev;
-			curr.prev = temp;
-			if (curr.prev == null)
+			curr.prev = next;
+			if (next == null)
 			{
 				tail = head;
 				head = curr;
 				return;
 			}
-			curr = curr.prev;
+			curr = next;
 		}
-
 	}
 	
 	public void display ()
