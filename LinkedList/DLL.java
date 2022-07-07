@@ -64,7 +64,6 @@ public class DLL {
 			}
 			while (temp.next != null && temp.next.val<val)
 			{
-				int v = temp.next.val;
 				temp = temp.next;
 			}
 			temp.next.prev = node;
